@@ -4,6 +4,8 @@ from tensorflow import keras
 from tensorflow.python.framework.convert_to_constants import convert_variables_to_constants_v2
 import numpy as np
 import argparse
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' 
 
 
 def write_graph(frozen_func, out_path, out_name):
@@ -18,7 +20,6 @@ def write_graph(frozen_func, out_path, out_name):
                     as_text=True)
 
 def main():
-
     args = argparse.ArgumentParser()
     args.add_argument('-i', '--input', type=str, help='input model', required=True, dest='input')
     args.add_argument('-o', '--output', type=str, help='output model', required=True, dest='output')
@@ -26,6 +27,8 @@ def main():
 
     args = args.parse_args()
 
+    if not(args.input and args.output and args.path):
+        print("Please provide input, output and path")
     if args.input and args.output and args.path:
         #path of the directory where you want to save your model
         frozen_out_path = args.path
@@ -54,5 +57,3 @@ def main():
         write_graph(frozen_func, args.path, args.output)
     else:
         print("Please provide input, output and path")
-
-

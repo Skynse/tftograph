@@ -8,6 +8,7 @@ authors = ["Your Name <you@example.com>"]
 python = ">=3.8, <3.11"
 tensorflow = "^2.7.0"
 numpy = "^1.22.1"
+typer = "^0.4.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
@@ -17,4 +18,4 @@ requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
-tftograph = "tftograph.tftograph:main"
+tftograph = 'src.tftograph:main'
