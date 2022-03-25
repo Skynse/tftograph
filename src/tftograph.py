@@ -1,11 +1,11 @@
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 import tensorflow as tf
 from tensorflow.keras.models import load_model
 from tensorflow import keras
 from tensorflow.python.framework.convert_to_constants import convert_variables_to_constants_v2
 import numpy as np
-import argparse
-import os
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' 
+import argparse 
 
 
 def write_graph(frozen_func, out_path, out_name):
